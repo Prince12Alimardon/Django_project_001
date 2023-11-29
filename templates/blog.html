@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<h2 style="margin-top: 30px">Bu Blog page</h2>
+{% for post in posts %}
+<h3>{{ post.title }}</h3>
+<p>{{ post.content }}</p>
+<p>Posted by: {{ post.author }} - {{ post.created_at }}</p>
+{% endfor %}
+
+{% endblock %}
