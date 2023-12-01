@@ -1,26 +1,26 @@
 {% extends 'index.html' %}
-<!--{% load crispy_forms_tags %}-->
+{% load crispy_forms_tags %}
 {% block content %}
 
 <h2 style="margin-top: 30px">Register Page</h2>
- <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            <filedset class="form-group">
-                <legend class="border-bottom mb-4">Join Now</legend>
-                {{ form.as_p }}
-            </filedset>
-            <div class="from-group">
-                <button class="btn btn-outline-info" type="submit">Sign Up</button>
-            </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Already Have an Account?
-                <a class="ml-2" style="color: dodgerblue" href="/">Sign In</a>
-            </small>
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Join Now</legend>
+            {{ form.as_p }}
+        </fieldset>
+        <div class="from-group">
+            <button class="btn btn-outline-info" type="submit">Sign Up</button>
         </div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have an Account?
+            <a class="ml-2" style="color: dodgerblue" href="/">Sign In</a>
+        </small>
     </div>
+</div>
 
 
 {% endblock %}
