@@ -1,6 +1,23 @@
 {% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
-<h1>My Profile</h1>
-<h2>{{ user.username }}</h2>
+<div class="card" style="width: 18rem; margin-top: 15px;">
+    <img class="rounded-circle account-img  " src="{{ user.profile.image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{ user.username }}</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ user.email }}</li>
+    </ul>
+    <div class="card-body">
+        <a href="https://www.instagram.com/alimardon_boqijonov/" class="card-link">Instagram</a>
+        <a href="https://github.com/Prince12Alimardon" class="card-link">Github</a>
+    </div>
+        <button type="button" class="btn btn-primary" ><a style="color: white" href="/u_profile/">Update Profile</a></button>
+</div>
+
 
 {% endblock %}
