@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h1 style="margin-top: 30px">Bu About Page</h1>
+{% for i in abouts %}
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ i.image.url }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Ism: {{ i.first_name }}</h5>
+        <h5 class="card-title">Familiya: {{ i.last_name }}</h5>
+          <h6 class="card-title">Profession: {{ i.profession }}</h6>
+        <p class="card-text">{{ i.about }}</p>
+          <h2 class="card-text"><a href="{{ i.cv.url }}">My CV</a></h2>
+        <p class="card-text"><small class="text-muted">{{ i.created_at }}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

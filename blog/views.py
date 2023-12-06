@@ -1,16 +1,32 @@
-from django.shortcuts import render, redirect
-from .models import Post
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Post, About
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .form import UserForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 
+
 # Create your views here.
 
-
+# @login_required
 def index(request):
-    return render(request, 'index.html')
+    post = Post.objects.all().order_by('-id')[:3]
+    return render(request, 'blog.html', {'posts': post})
+
+
+@login_required
+def detail_view(request, pk):
+    post = get_object_or_404(Post, id=pk)
+    return render(request, 'detail.html', {'posts': post})
+
+
+def about(requset):
+    object = About.objects.all().order_by('-id')[:1]
+    context = {
+        'abouts': object
+    }
+    return render(requset, 'about.html', context)
 
 
 @login_required
@@ -49,6 +65,7 @@ def register(request):
     else:
         form = UserForm()
     return render(request, 'users/register.html', {'form': form})
+
 
 @login_required
 def profile(request):

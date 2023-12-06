@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<h2 style="margin-top: 30px">Bu Blog Detail page</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" style="margin-bottom: 30px">
+        <div class="card h-100">
+            <img src="{{ posts.image.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h2>{{ posts.title }}</h2>
+                <h3>Author: {{ posts.author }}</h3>
+                <p>{{ posts.content }}</p>
+                <p class="card-text">{{ posts.created_at }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
